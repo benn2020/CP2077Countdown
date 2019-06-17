@@ -29,12 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.tmrCountdown = new System.Windows.Forms.Timer(this.components);
+            this.lblCountdown = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // tmrCountdown
+            // 
+            this.tmrCountdown.Enabled = true;
+            // 
+            // lblCountdown
+            // 
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Location = new System.Drawing.Point(41, 30);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(35, 13);
+            this.lblCountdown.TabIndex = 0;
+            this.lblCountdown.Text = "label1";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCountdown);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer tmrCountdown;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }
 
