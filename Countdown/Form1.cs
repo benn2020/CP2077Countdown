@@ -15,12 +15,15 @@ namespace Countdown
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Left = -300;
+            this.Top = 835;
+            //this.ShowDialog();
         }
 
         private void tmrCountdown_Tick(object sender, EventArgs e)
         {
             lblDate.Text = countdown();
-
         }
 
         private string countdown()
@@ -34,6 +37,18 @@ namespace Countdown
             string countdown = string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds til launch.", t.Days, t.Hours, t.Minutes, t.Seconds);
 
             return countdown;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == WindowState)
+                Hide();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
         }
     }
 }
