@@ -16,5 +16,24 @@ namespace Countdown
         {
             InitializeComponent();
         }
+
+        private void tmrCountdown_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = countdown();
+
+        }
+
+        private string countdown()
+        {
+            //Setting values
+            DateTime daysLeft = DateTime.Parse("16/04/2020 00:00:01 AM");
+            DateTime startDate = DateTime.Now;
+
+            //Calculations
+            TimeSpan t = daysLeft - startDate;
+            string countdown = string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds til launch.", t.Days, t.Hours, t.Minutes, t.Seconds);
+
+            return countdown;
+        }
     }
 }
