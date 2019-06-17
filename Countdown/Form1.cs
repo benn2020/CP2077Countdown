@@ -43,12 +43,23 @@ namespace Countdown
         {
             if (FormWindowState.Minimized == WindowState)
                 Hide();
+
+            //if (FormWindowState.)
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             Show();
             WindowState = FormWindowState.Normal;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
         }
     }
 }

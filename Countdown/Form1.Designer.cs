@@ -66,6 +66,7 @@
             this.Name = "Form1";
             this.ShowInTaskbar = false;
             this.Text = "Cyberpunk 2077 Countdown";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
