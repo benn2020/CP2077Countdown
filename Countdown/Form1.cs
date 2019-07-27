@@ -12,24 +12,28 @@ namespace Countdown
 {
     public partial class Form1 : Form
     {
+        string countdownDate = "16/04/2020 00:00:01 AM";
+
+        // Starts form in correct position
         public Form1()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Left = -300;
             this.Top = 835;
-            //this.ShowDialog();
         }
 
+        // Updates text every second
         private void tmrCountdown_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = countdown();
+            lblDate.Text = countdown(countdownDate);
         }
 
-        private string countdown()
+        // Function for getting the time left 
+        private string countdown(string countdownDate)
         {
             //Setting values
-            DateTime daysLeft = DateTime.Parse("16/04/2020 00:00:01 AM");
+            DateTime daysLeft = DateTime.Parse(countdownDate);
             DateTime startDate = DateTime.Now;
 
             //Calculations
@@ -39,20 +43,21 @@ namespace Countdown
             return countdown;
         }
 
+        // Code for when window is minimized
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (FormWindowState.Minimized == WindowState)
                 Hide();
-
-            //if (FormWindowState.)
         }
 
+        // Code to launch app from taskbar icon
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             Show();
             WindowState = FormWindowState.Normal;
         }
 
+        // Stops app from properly closing from the window
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(e.CloseReason == CloseReason.UserClosing)
@@ -60,6 +65,13 @@ namespace Countdown
                 e.Cancel = true;
                 Hide();
             }
+        }
+
+        // Menu for the notification icon to exit 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Closes application
+            Application.Exit();
         }
     }
 }
