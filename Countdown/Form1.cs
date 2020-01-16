@@ -12,7 +12,7 @@ namespace Countdown
 {
     public partial class Form1 : Form
     {
-        string countdownDate = "16/04/2020 00:00:01 AM";
+        string countdownDate = "17/09/2020 00:00:01 AM";
 
         // Starts form in correct position
         public Form1()
@@ -20,7 +20,23 @@ namespace Countdown
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Left = -300;
-            this.Top = 835;
+            this.Top = 925;
+            //PlaceLowerRight();
+        }
+
+        //Places form in bottom right of screen
+        private void PlaceLowerRight()
+        {
+            //Determine "rightmost" screen
+            Screen rightmost = Screen.AllScreens[0];
+            foreach (Screen screen in Screen.AllScreens)
+            {
+                if (screen.WorkingArea.Right > rightmost.WorkingArea.Right)
+                    rightmost = screen;
+            }
+
+            this.Left = rightmost.WorkingArea.Right - this.Width;
+            this.Top = rightmost.WorkingArea.Bottom - this.Height;
         }
 
         // Updates text every second
