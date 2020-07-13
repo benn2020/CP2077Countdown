@@ -12,7 +12,7 @@ namespace Countdown
 {
     public partial class Form1 : Form
     {
-        string countdownDate = "17/09/2020 00:00:01 AM";
+        string countdownDate = "19/11/2020 00:00:01 AM";
 
         // Starts form in correct position
         public Form1()
